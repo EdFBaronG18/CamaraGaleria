@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CamaraService } from '../servicios/camara.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  numFotos: number;
 
+  constructor(private camaraService: CamaraService) {
+    this.numFotos = this.camaraService.getNumFotos();
+  }
+
+  ionViewDidEnter() {
+    this.numFotos = this.camaraService.getNumFotos();
+  }
+
+  badge(){
+    this.numFotos = this.camaraService.getNumFotos();
+  }
 }

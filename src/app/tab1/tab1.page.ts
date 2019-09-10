@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CamaraService } from '../servicios/camara.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  fotos: Array<any>;
 
+  constructor(private camaraService: CamaraService) {
+    this.fotos = this.camaraService.getFotos();
+  }
 }
