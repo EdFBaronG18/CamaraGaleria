@@ -9,7 +9,6 @@ export class CamaraService {
 
   constructor() {
     this.fotos = [];
-    // this.fotos = ['https://tech.tribalyte.eu/wp-content/uploads/2018/05/ionic-500x500.png', 'https://tech.tribalyte.eu/wp-content/uploads/2018/05/ionic-500x500.png', 'https://tech.tribalyte.eu/wp-content/uploads/2018/05/ionic-500x500.png', 'https://tech.tribalyte.eu/wp-content/uploads/2018/05/ionic-500x500.png'];
     this.videos = [];
   }
 

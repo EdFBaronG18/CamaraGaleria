@@ -11,11 +11,12 @@ import { AppComponent } from './app.component';
 
 import { Camera } from '@ionic-native/camera/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,
