@@ -1,18 +1,33 @@
 <ion-tabs>
-
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1" (click)="badge()">
-      <ion-icon class="icon" name="images"></ion-icon>
-      <ion-badge class="badge" color="tertiary" mode="md">{{numFotos}}</ion-badge>
+    <ion-tab-button
+      tab="tab1"
+      (click)="badge()"
+    >
+      <ion-badge
+        class="badge"
+        color="tertiary"
+        mode="md"
+      >{{numFotos}}</ion-badge>
+
+      <ion-icon
+        class="icon"
+        name="images"
+      ></ion-icon>
     </ion-tab-button>
 
     <ion-tab-button tab="tab2">
-      <ion-icon class="icon" name="camera"></ion-icon>
+      <ion-icon
+        class="icon"
+        name="camera"
+      ></ion-icon>
     </ion-tab-button>
 
     <ion-tab-button tab="tab3">
-      <ion-icon class="icon" name="videocam"></ion-icon>
+      <ion-icon
+        class="icon"
+        name="videocam"
+      ></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>
-
 </ion-tabs>

@@ -5,18 +5,13 @@
 </ion-header>
 
 <ion-content>
-  <img
-    [src]="foto"
-    *ngIf="foto"
-    alt="FotoTomada"
-  >
-
-  <img
-    [src]="video"
-    *ngIf="video"
-    alt="Video"
-    (click)="verVideo()"
-  >
+  <ion-card>
+    <img
+      [src]="foto"
+      *ngIf="foto"
+      alt="FotoTomada"
+    >
+  </ion-card>
 </ion-content>
 
 <ion-footer no-border="no-border">
@@ -33,7 +28,6 @@
               slot="start"
               name="camera"
             ></ion-icon>
-
             Foto
           </ion-button>
         </ion-col>
@@ -48,7 +42,6 @@
               slot="start"
               name="videocam"
             ></ion-icon>
-
             Video
           </ion-button>
         </ion-col>

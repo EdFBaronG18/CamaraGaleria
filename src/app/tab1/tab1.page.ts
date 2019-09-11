@@ -12,5 +12,6 @@ export class Tab1Page {
 
   constructor(private camaraService: CamaraService) {
     this.fotos = this.camaraService.getFotos();
+    console.log(this.fotos);
   }
 }

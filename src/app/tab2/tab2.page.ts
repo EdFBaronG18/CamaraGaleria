@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { CamaraService } from '../servicios/camara.service';
 
 @Component({
@@ -11,15 +12,25 @@ export class Tab2Page {
   foto: any;
   video: any;
 
-  constructor(private camaraService: CamaraService) {}
+  constructor(private camaraService: CamaraService, private camera: Camera) {}
 
   takeFoto() {
-    this.foto = 'https://tech.tribalyte.eu/wp-content/uploads/2018/05/ionic-500x500.png';
-    this.mensaje = this.camaraService.setFoto(this.foto);
-    console.log(this.camaraService.getNumFotos());
-    
-    console.log(this.mensaje);
-    this.foto = null;
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
+    };
+    this.camera.getPicture(options).then(
+      imageData => {
+        this.foto = 'data:image/jpeg;base64,' + imageData;
+        this.mensaje = this.camaraService.setFoto(this.foto);
+      },
+      err => {
+        console.log('Error al tomar la foto.');
+      }
+    );
   }
 
   takeVideo() {
