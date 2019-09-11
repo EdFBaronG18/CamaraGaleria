@@ -12,11 +12,13 @@
         size="4"
       >
         <div class="welcome-card">
-          <img
-            [src]="foto"
-            (click)="verFoto(foto)"
-            alt="Foto Galeria"
-          >
+          <ion-thumbnail class="thum">
+              <img
+              [src]="foto"
+              (click)="verFoto(foto)"
+              alt="Foto Galeria"
+            >
+          </ion-thumbnail>
         </div>
       </ion-col>
     </ion-row>
