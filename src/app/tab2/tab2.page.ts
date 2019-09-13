@@ -1,13 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import {
-  CaptureError,
-  CaptureImageOptions,
-  MediaCapture,
-  MediaFile
-} from '@ionic-native/media-capture/ngx';
+import { CaptureError, CaptureImageOptions, MediaCapture, MediaFile } from '@ionic-native/media-capture/ngx';
 import { ToastController } from '@ionic/angular';
 import { CamaraService } from '../servicios/camara.service';
+
 
 @Component({
   selector: 'app-tab2',
@@ -15,6 +11,8 @@ import { CamaraService } from '../servicios/camara.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+
+
   mensaje: any;
   foto: any;
   video: any;

@@ -13,17 +13,21 @@ export class TabsPage {
 
   constructor(private camaraService: CamaraService) {
     this.numFotos = this.camaraService.getNumFotos();
+    this.numVideos = this.camaraService.getNumVideos();
   }
 
   ionViewDidEnter() {
     this.numFotos = this.camaraService.getNumFotos();
+    this.numVideos = this.camaraService.getNumVideos();
   }
 
-  badge(){
+  badge() {
     this.numFotos = this.camaraService.getNumFotos();
+    console.log('Fotos', this.camaraService.getFotos());
   }
 
   badge2() {
     this.numVideos = this.camaraService.getNumVideos();
+    console.log('Videos', this.camaraService.getVideos());
   }
 }

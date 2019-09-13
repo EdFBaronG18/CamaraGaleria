@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { CaptureError, CaptureImageOptions, MediaCapture, MediaFile } from '@ionic-native/media-capture/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CamaraService {
   fotos: Array<any>;
-  videos: Array<any>;
+  videos: MediaFile[];
 
   constructor() {
     this.fotos = [];
@@ -16,7 +17,7 @@ export class CamaraService {
     return this.fotos;
   }
 
-  getVideos(): Array<any> {
+  getVideos() {
     return this.videos;
   }
 
@@ -35,6 +36,7 @@ export class CamaraService {
     if (video !== null && video !== undefined && video !== '') {
       this.videos.unshift(video);
       console.log(video);
+      console.log('Video Agregado');
       return true;
     }
     console.log(video);
@@ -46,6 +48,6 @@ export class CamaraService {
   }
 
   getNumVideos() {
-    return this.videos.length;
+    return this.videos.length.valueOf();
   }
 }

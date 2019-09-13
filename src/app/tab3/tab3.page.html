@@ -6,25 +6,7 @@
 
 <ion-content>
   <ion-grid fixed="fixed">
-    <ion-row *ngIf="videos">
-      <ion-col
-        *ngFor="let video of videos"
-        size="4"
-      >
-        <div class="welcome-card">
-          <ion-thumbnail class="thum">
-              <source
-              [src]="video"
-              type="video/mp4"
-              (click)="verVideo(video)"
-              alt="Video Galeria"
-            >
-          </ion-thumbnail>
-        </div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row *ngIf="videos.length === 0">
+    <ion-row *ngIf="!videos">
       <ion-col size="12">
         <ion-text class="center">
           <h4>No hay videos para mostrar.</h4>
@@ -32,4 +14,23 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <div *ngIf="videos">
+    <ion-list *ngFor="let video of videos">
+      <ion-item>
+        <ion-icon
+          name="play"
+          slot="start"
+        ></ion-icon>
+
+        <ion-text color="primary">
+          <h5>{{video[0].name}}</h5>
+
+          <span class="size">
+            {{(video[0].size / (1024*1024)).toFixed(3)}} MB
+          </span>
+        </ion-text>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
