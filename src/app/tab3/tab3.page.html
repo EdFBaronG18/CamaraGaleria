@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Videos</ion-title>
+    <ion-title>Galería de videos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid fixed="fixed">
-    <ion-row *ngIf="!videos">
+    <ion-row *ngIf="videos.length === 0">
       <ion-col size="12">
         <ion-text class="center">
           <h4>No hay videos para mostrar.</h4>
@@ -17,7 +17,7 @@
 
   <div *ngIf="videos">
     <ion-list *ngFor="let video of videos">
-      <ion-item>
+      <ion-item (click)="verVideo(video)">
         <ion-icon
           name="play"
           slot="start"

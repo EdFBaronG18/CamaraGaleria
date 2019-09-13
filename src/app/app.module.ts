@@ -13,6 +13,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { MediaCapture } from '@ionic-native/media-capture/ngx';
+import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { MediaCapture } from '@ionic-native/media-capture/ngx';
     Camera,
     MediaCapture,
     PhotoViewer,
+    StreamingMedia,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
