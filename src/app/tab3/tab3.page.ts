@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
+  videos: any[];
+  video: any;
+
   constructor() {}
 
+  verVideo() {
+    
+  }
 }

@@ -6,25 +6,29 @@
 
 <ion-content>
   <ion-grid fixed="fixed">
-    <ion-row>
-      <ion-col size="12">
-        <ion-card class="welcome-card">
-          <img
-            src="/assets/shapes.svg"
-            alt="Fotos"
-          >
-        </ion-card>
+    <ion-row *ngIf="videos">
+      <ion-col
+        *ngFor="let video of videos"
+        size="4"
+      >
+        <div class="welcome-card">
+          <ion-thumbnail class="thum">
+              <source
+              [src]="video"
+              type="video/mp4"
+              (click)="verVideo(video)"
+              alt="Video Galeria"
+            >
+          </ion-thumbnail>
+        </div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="videos.length === 0">
       <ion-col size="12">
-        <ion-card class="welcome-card">
-          <img
-            src="/assets/shapes.svg"
-            alt="Fotos"
-          >
-        </ion-card>
+        <ion-text class="center">
+          <h4>No hay videos para mostrar.</h4>
+        </ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>

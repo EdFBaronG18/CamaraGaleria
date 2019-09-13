@@ -23,7 +23,16 @@
       ></ion-icon>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3">
+    <ion-tab-button
+      tab="tab3"
+      (click)="badge2()"
+    >
+      <ion-badge
+      class="badge"
+        color="tertiary"
+        mode="md"
+      >{{numVideos}}</ion-badge>
+
       <ion-icon
         class="icon"
         name="videocam"

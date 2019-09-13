@@ -22,7 +22,7 @@ export class CamaraService {
 
   setFoto(foto: any) {
     if (foto !== null && foto !== undefined && foto !== '') {
-      this.fotos.push(foto);
+      this.fotos.unshift(foto);
       console.log(foto);
 
       return 'Foto agregada a la galeria';
@@ -31,18 +31,21 @@ export class CamaraService {
     return 'Error! No hay foto tomada';
   }
 
-  setVideo(video: any) {
+  setVideo(video: any): boolean {
     if (video !== null && video !== undefined && video !== '') {
-      this.fotos.push(video);
+      this.videos.unshift(video);
       console.log(video);
-
-      return 'Video agregado a la galeria';
+      return true;
     }
     console.log(video);
-    return 'Error! No hay video tomado';
+    return false;
   }
 
   getNumFotos() {
     return this.fotos.length;
+  }
+
+  getNumVideos() {
+    return this.videos.length;
   }
 }

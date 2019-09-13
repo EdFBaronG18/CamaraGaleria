@@ -8,6 +8,7 @@ import { CamaraService } from '../servicios/camara.service';
 })
 export class TabsPage {
 
+  numVideos: number;
   numFotos: number;
 
   constructor(private camaraService: CamaraService) {
@@ -20,5 +21,9 @@ export class TabsPage {
 
   badge(){
     this.numFotos = this.camaraService.getNumFotos();
+  }
+
+  badge2() {
+    this.numVideos = this.camaraService.getNumVideos();
   }
 }

@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import {
+  CaptureError,
+  CaptureImageOptions,
+  MediaCapture,
+  MediaFile
+} from '@ionic-native/media-capture/ngx';
+import { ToastController } from '@ionic/angular';
 import { CamaraService } from '../servicios/camara.service';
 
 @Component({
@@ -12,7 +19,12 @@ export class Tab2Page {
   foto: any;
   video: any;
 
-  constructor(private camaraService: CamaraService, private camera: Camera) {}
+  constructor(
+    private camaraService: CamaraService,
+    private camera: Camera,
+    private mediaCapture: MediaCapture,
+    private toast: ToastController
+  ) {}
 
   takeFoto() {
     const options: CameraOptions = {
@@ -25,18 +37,40 @@ export class Tab2Page {
     this.camera.getPicture(options).then(
       imageData => {
         this.foto = 'data:image/jpeg;base64,' + imageData;
-        this.mensaje = this.camaraService.setFoto(this.foto);
+        if (this.camaraService.setFoto(this.foto)) {
+          this.msjVideo('Foto agregada a la galeria de fotos');
+        }
       },
       err => {
-        console.log('Error al tomar la foto.');
+        this.msjVideo('Error al guardar foto');
+        console.log('Error al guardar la foto.');
       }
     );
   }
 
   takeVideo() {
-    this.mensaje = this.camaraService.setVideo(this.video);
-    console.log(this.mensaje);
-    this.video = null;
+    const options: CaptureImageOptions = { limit: 1 };
+    this.mediaCapture.captureVideo(options).then(
+      (data: MediaFile[]) => {
+        this.video = data;
+        if (this.camaraService.setVideo(this.video)) {
+          this.msjVideo('El video fue agregado a la galeria de videos');
+          console.log(data);
+        }
+      },
+      (err: CaptureError) => this.msjVideo('Error al agregar el video')
+    );
   }
+
+  async msjVideo(msj: string) {
+    const toast = await this.toast.create({
+      animated: true,
+      position: 'top',
+      message: msj,
+      duration: 2000
+    });
+    toast.present();
+  }
+
   verVideo() {}
 }
