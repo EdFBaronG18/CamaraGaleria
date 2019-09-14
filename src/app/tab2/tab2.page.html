@@ -5,10 +5,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-grid fixed="fixed">
+    <ion-row *ngIf="foto === null">
+      <ion-col size="12">
+        <ion-text class="center">
+          <h4>
+            Toma una foto para ver algo aqui :3
+          </h4>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngIf="foto">
     <img
+      (click)="verGrande(foto)"
       [src]="foto"
-      *ngIf="foto"
       alt="FotoTomada"
     >
   </ion-card>
@@ -28,6 +40,7 @@
               slot="start"
               name="camera"
             ></ion-icon>
+
             Foto
           </ion-button>
         </ion-col>
@@ -42,6 +55,7 @@
               slot="start"
               name="videocam"
             ></ion-icon>
+
             Video
           </ion-button>
         </ion-col>

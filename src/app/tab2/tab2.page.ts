@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { CaptureError, CaptureImageOptions, MediaCapture, MediaFile } from '@ionic-native/media-capture/ngx';
 import { ToastController } from '@ionic/angular';
 import { CamaraService } from '../servicios/camara.service';
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class Tab2Page {
     private camaraService: CamaraService,
     private camera: Camera,
     private mediaCapture: MediaCapture,
-    private toast: ToastController
+    private toast: ToastController,
+    private visor: PhotoViewer
   ) {}
 
   takeFoto() {
@@ -70,5 +72,7 @@ export class Tab2Page {
     toast.present();
   }
 
-  verVideo() {}
+  verGrande(foto: any) {
+      this.visor.show(foto, '', {share: true});
+  }
 }
